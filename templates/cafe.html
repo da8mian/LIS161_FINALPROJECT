@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="display: flex; justify-content: center; align-items: center;">
+    <div>
+        <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; text-align: center";><b>{{ cafe.name }}</b></h1>
+        <img src="{{ cafe.url }}" width="1000px">
+        <p style="font-family: Georgia, 'Times New Roman', Times, serif; text-align: center";>{{ cafe.desc }}</p>
+        <ul type="circle">
+            {% if cafe.area %}
+            <li style="font-family: Georgia, 'Times New Roman', Times, serif";><b>Area:</b> {{ cafe.area }}</li>
+            {% endif %}
+            <br>
+            <li style="font-family: Georgia, 'Times New Roman', Times, serif";><b>Address:</b><p>{{ cafe.address }}</p>
+            <li><b>Store Hours:</b><p>{{ cafe.time }}</p>
+
+            {% if cafe.outlet %}
+            <li style="font-family: Georgia, 'Times New Roman', Times, serif";><b>Power Outlets:</b> {{ cafe.outlet }}</li>
+            {% endif %}
+            
+            {% if cafe.parking %}
+            <li style="font-family: Georgia, 'Times New Roman', Times, serif";><b>Parking:</b> {{ cafe.parking }}</li>
+            {% endif %}
+        </ul>
+            <h7 style="font-family: Georgia, 'Times New Roman', Times, serif";><b>CONTACT DETAILS:</b></h7>
+        <ul type="circle">
+            <br>
+            <li style="font-family: Georgia, 'Times New Roman', Times, serif";><b>Contact Number:</b><p>{{ cafe.number }}</p>
+            <li style="font-family: Georgia, 'Times New Roman', Times, serif";><b>Email Address:</b><p>{{ cafe.email }}</p>
+            <li style="font-family: Georgia, 'Times New Roman', Times, serif";><b>Website:</b><p>{{ cafe.website }}</p>
+            <li style="font-family: Georgia, 'Times New Roman', Times, serif";><b>Facebook page:</b><p>{{ cafe.fb }}</p>
+            <li style="font-family: Georgia, 'Times New Roman', Times, serif";><b>Instagram page:</b><p>{{ cafe.ig}}</p>
+        </ul>
+        <form action="{{ url_for('modify') }}" method="post">
+            <input type="hidden" name="cafe_id" value="{{ cafe.id }}">
+            <input class="btn btn-secondary" type="submit" name="modify" style="font-family: Georgia, 'Times New Roman', Times, serif"; value="edit"></input>
+            <input class="btn btn-danger" type="submit" name="modify" style="font-family: Georgia, 'Times New Roman', Times, serif"; value="delete"></input>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

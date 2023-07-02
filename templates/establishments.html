@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 style="font-family: Georgia, 'Times New Roman', Times, serif; text-align: center;"><b>List of establishments in {{ cafe_area }}</b></h1>
+
+<div class="container">
+    {% for cafe in cafes %}
+    <li style="list-style-type: none;"><a href="/establishments/{{ cafe.id }}">{{ cafe.name }}</a></li>
+    {% endfor %}
+</div>
+
+{% endblock %}

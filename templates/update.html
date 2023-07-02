@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center;">
+    <form action="{{ url_for('update') }}" method="post">
+        <h2 style="font-family: Georgia, 'Times New Roman', Times, serif; text-align: center; color: #640b03;"><b>Information no longer up-to-date?</b></h2>
+        <h4 style="font-family: Georgia, 'Times New Roman', Times, serif; text-align: center; color: #0e3a04;"><b>You may edit the information here.</b></h4><br>
+
+        <input type="hidden" name="cafe_id" value="{{ cafe.id }}">
+        <label for="cafe_name" style="font-family: Georgia, 'Times New Roman', Times, serif;">Name of the Establishment:</label>
+            <input type="text" name="cafe_name" id="cafe_name"><br><br>
+        <label for="cafe_address" style="font-family: Georgia, 'Times New Roman', Times, serif;">Address:</label>
+            <input type="text" name="cafe_address" id="cafe_address"><br><br>
+        <label for="cafe_area" style="font-family: Georgia, 'Times New Roman', Times, serif;">Area:</label>
+        <select name="cafe_area" id="cafe_area" required>
+            <option disabled selected value>...</option>
+            {% if cafe.area == "Maginhawa" %}
+            <option value="Maginhawa" selected>Maginhawa</option>
+            <option value="Katipunan">Katipunan</option>
+            <option disabled selected value>...</option>
+            {% elif cafe.area == "Katipunan" %}
+            <option value="Maginhawa">Maginhawa</option>
+            <option value="Katipunan" selected>Katipunan</option>
+            {% endif %}
+        </select><br><br>
+        <label for="e_time" style="font-family: Georgia, 'Times New Roman', Times, serif;">Store hours:</label>
+        <input type="text" name="cafe_time" id="cafe_time"><br><br>
+        <label for="e_outlet" style="font-family: Georgia, 'Times New Roman', Times, serif;">Power Outlets:</label>
+        <select name="cafe_outlet" id="cafe_outlet" required>
+            <option disabled selected value>...</option>
+            <option value="Available">Available</option>
+            <option value="Unavailable">Unavailable</option>
+        </select><br><br>
+        <label for="e_parking" style="font-family: Georgia, 'Times New Roman', Times, serif;">Parking Area:</label>
+        <select name="cafe_parking" id="cafe_parking" required>
+            <option disabled selected value>...</option>
+            <option value="Available">Available</option>
+            <option value="Unavailable">Unavailable</option>
+        </select><br><br>
+
+        <label for="cafe_number" style="font-family: Georgia, 'Times New Roman', Times, serif;">Contact Number:</label>
+        <input type="numeric" name="cafe_number" id="cafe_number"><br><br>
+        <label for="cafe_email" style="font-family: Georgia, 'Times New Roman', Times, serif;">Email address:</label>
+        <input type="email" name="cafe_email" id="cafe_email"><br><br>
+        <label for="cafe_website" style="font-family: Georgia, 'Times New Roman', Times, serif;">Website:</label>
+        <input type="url" name="cafe_website" id="cafe_website"><br><br>
+        <label for="cafe_fb" style="font-family: Georgia, 'Times New Roman', Times, serif;">Facebook page:</label>
+        <input type="url" name="cafe_fb" id="cafe_fb"><br><br>
+        <label for="cafe_ig" style="font-family: Georgia, 'Times New Roman', Times, serif;">Instagram page:</label>
+        <input type="url" name="cafe_ig" id="cafe_ig"><br><br>
+        <label for="cafe_url" style="font-family: Georgia, 'Times New Roman', Times, serif;">Image URL:</label>
+        <input type="url" name="cafe_url" id="cafe_url"><br><br>
+        <textarea name="cafe_desc" style="font-family: Georgia, 'Times New Roman', Times, serif; text-align: center;" placeholder="Write a brief description of the establishment..." cols="50" rows="10"></textarea><br>
+        <input type="submit" style="font-family: Georgia, 'Times New Roman', Times, serif"; value="Update!">
+
+</form>
+</div>
+{% endblock %}

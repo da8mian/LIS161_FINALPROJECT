@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center;">
+    <form action="{{ url_for('processing') }}" method="post">
+        <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; text-align: center; color: #640b03;"><b>Know a good study place with wifi?</b></h1>
+        <h2 style="font-family: Georgia, 'Times New Roman', Times, serif; text-align: center; color: #0e3a04;"><b>Register it here!</b></h2><br>
+    
+        <label for="e_name" style="font-family: Georgia, 'Times New Roman', Times, serif;">Name of Establishment:</label>
+        <input type="text" name="cafe_name" id="e_name" required><br><br>
+        <label for="cafe_address" style="font-family: Georgia, 'Times New Roman', Times, serif;">Address:</label>
+        <input type="text" name="cafe_address" id="e_address" required><br><br>
+        <label for="e_area" style="font-family: Georgia, 'Times New Roman', Times, serif;">Area:</label>
+        <select name="cafe_area" id="e_area" required>
+            <option disabled selected value>...</option>
+            <option value="Maginhawa">Maginhawa</option>
+            <option value="Katipunan">Katipunan</option>
+        </select><br><br>
+        <label for="e_time" style="font-family: Georgia, 'Times New Roman', Times, serif;">Store hours:</label>
+        <input type="text" name="cafe_time" id="e_time"><br><br>
+        <label for="e_outlet" style="font-family: Georgia, 'Times New Roman', Times, serif;">Power Outlets:</label>
+        <select name="cafe_outlet" id="e_outlet" required>
+            <option disabled selected value>...</option>
+            <option value="Available">Available</option>
+            <option value="Unavailable">Unavailable</option>
+        </select><br><br>
+        <label for="e_parking" style="font-family: Georgia, 'Times New Roman', Times, serif;">Parking Area:</label>
+        <select name="cafe_parking" id="e_parking" required>
+            <option disabled selected value>...</option>
+            <option value="Available">Available</option>
+            <option value="Unavailable">Unavailable</option>
+        </select><br><br>
+
+        <h7 style="font-family: Georgia, 'Times New Roman', Times, serif;"><b>CONTACT DETAILS:</b></h7><br><br>
+        <label for="e_number" style="font-family: Georgia, 'Times New Roman', Times, serif;">Contact Number:</label>
+        <input type="numeric" name="cafe_number" id="e_number"><br><br>
+        <label for="e_email" style="font-family: Georgia, 'Times New Roman', Times, serif;">Email address:</label>
+        <input type="email" name="cafe_email" id="e_email"><br><br>
+        <label for="e_website" style="font-family: Georgia, 'Times New Roman', Times, serif;">Website:</label>
+        <input type="url" name="cafe_website" id="e_website"><br><br>
+        <label for="e_fb" style="font-family: Georgia, 'Times New Roman', Times, serif;">Facebook page:</label>
+        <input type="url" name="cafe_fb" id="e_fb"><br><br>
+        <label for="e_ig" style="font-family: Georgia, 'Times New Roman', Times, serif;">Instagram page:</label>
+        <input type="url" name="cafe_ig" id="e_ig"><br><br>
+        <label for="e_url" style="font-family: Georgia, 'Times New Roman', Times, serif;">Image URL:</label>
+        <input type="url" name="cafe_url" id="e_url"><br><br>
+        <textarea name="cafe_desc" style="font-family: Georgia, 'Times New Roman', Times, serif; text-align: center;" placeholder="Write a brief description of the establishment..." cols="50" rows="10"></textarea><br>
+
+        
+        <input type="submit" style="font-family: Georgia, 'Times New Roman', Times, serif"; value="Add this place!">
+</form>
+</div>
+
+{% endblock %}
